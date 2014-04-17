@@ -45,6 +45,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="HighScore" destination="lZM-Yu-3Kq" id="8z4-Db-bb4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,6 +99,22 @@
                                 <rect key="frame" x="0.0" y="546" width="320" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJA-WZ-5GB">
+                                <rect key="frame" x="5" y="36" width="101" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmg-s3-hL4">
+                                <rect key="frame" x="137" y="269" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="4IP-9U-x5a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -103,6 +122,8 @@
                     <connections>
                         <outlet property="Bird" destination="gBI-XI-S3y" id="8dt-3V-XUj"/>
                         <outlet property="Bottom" destination="kqX-ty-VUd" id="YIt-XG-UgT"/>
+                        <outlet property="ExitGame" destination="pmg-s3-hL4" id="pop-Nr-fa4"/>
+                        <outlet property="ScoreLabel" destination="sJA-WZ-5GB" id="WH0-u4-wcW"/>
                         <outlet property="StartGame" destination="mqE-y2-uq2" id="jy8-jE-8V9"/>
                         <outlet property="Top" destination="Ppo-EF-cJq" id="VzH-Ns-9DF"/>
                         <outlet property="TunnelBottom" destination="OX9-Bg-q7p" id="Kw5-X1-jUz"/>

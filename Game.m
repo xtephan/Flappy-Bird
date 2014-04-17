@@ -87,6 +87,56 @@
         [self PlaceTunnels];
     }
     
+    if( TunnetTop.center.x == 30 ) {
+        [self Score];
+    }
+    
+    if( CGRectIntersectsRect(Bird.frame, TunnetTop.frame)) {
+        [self GameOver];
+    }
+    
+    if( CGRectIntersectsRect(Bird.frame, TunnelBottom.frame)) {
+        [self GameOver];
+    }
+    
+    if( CGRectIntersectsRect(Bird.frame, Top.frame)) {
+        [self GameOver];
+    }
+    
+    if( CGRectIntersectsRect(Bird.frame, Bottom.frame)) {
+        [self GameOver];
+    }
+    
+}
+
+//Pum pum pum, game over
+-(void)GameOver {
+    
+    //stop the timers
+    [TunnelMovement invalidate];
+    [BirdMovement invalidate];
+    
+    //check for high score
+    if( ScoreNumber > HighScoreNumber) {
+        [[NSUserDefaults standardUserDefaults] setInteger:ScoreNumber forKey:@"HighScoreSaved"];
+    }
+    
+    //Allow Exit
+    ExitGame.hidden = NO;
+    
+    //Hide stuff
+    TunnetTop.hidden = YES;
+    TunnelBottom.hidden = YES;
+    Bird.hidden = YES;
+    
+}
+
+//Increase score
+-(void) Score {
+    
+    ScoreNumber = ScoreNumber+1;
+    
+    ScoreLabel.text = [NSString stringWithFormat:@"%i",ScoreNumber];
     
 }
 
@@ -105,6 +155,14 @@
     //hide the tunnel until they enter the screen
     TunnetTop.hidden = YES;
     TunnelBottom.hidden = YES;
+    
+    //hide exit button
+    ExitGame.hidden = YES;
+    
+    //make sure the score is 0
+    ScoreNumber = 0;
+    
+    HighScoreNumber = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScoreSaved"];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

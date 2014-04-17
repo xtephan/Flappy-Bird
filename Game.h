@@ -10,18 +10,24 @@
 
 int BirdFlight,
     RandomTopTunnelPosition,
-    RandonBottomTunnelPosition;
+    RandonBottomTunnelPosition,
+    ScoreNumber;
+
+NSInteger HighScoreNumber;
 
 @interface Game : UIViewController
 {
 
-    IBOutlet UIButton *StartGame;
+    IBOutlet UIButton   *StartGame,
+                        *ExitGame;
     
     IBOutlet UIImageView    *Bird,
                             *TunnetTop,
                             *TunnelBottom,
                             *Top,
                             *Bottom;
+    
+    IBOutlet UILabel *ScoreLabel;
     
     NSTimer *BirdMovement,
             *TunnelMovement;
@@ -31,5 +37,7 @@ int BirdFlight,
 -(void)BirdMoving;
 -(void)TunnelMoving;
 -(void)PlaceTunnels;
+-(void)Score;
+-(void)GameOver;
 
 @end
